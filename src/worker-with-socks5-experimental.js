@@ -1,4 +1,4 @@
-// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:05 UTC<!--GAMFC-END-->.
+// <!--GAMFC-->version base on commit 58686d5d125194d34a1137913b3a64ddcf55872f, time is 2024-11-27 09:26:02 UTC<!--GAMFC-END-->.
 // @ts-ignore
 import { connect } from 'cloudflare:sockets';
 
@@ -769,7 +769,12 @@ function socks5AddressParser(address) {
  * @returns {string}
  */
 function getVLESSConfig(userID, hostName) {
-	const vlessMain = `vless://${userID}@${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
+	const protocol = "vless";
+	const vlessMain = 
+	`${protocol}` + 
+	`://${userID}@${hostName}:443`+
+	`?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`;
+	
 	return `
 ################################################################
 v2ray
